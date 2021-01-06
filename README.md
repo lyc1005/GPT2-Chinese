@@ -1,7 +1,7 @@
 # 古诗词生成
 
 ## 方法
-本项目使用了中文[GPT-2](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)模型。GPT2的核心思想就是利用transformer的decoder构建语言,即对序列中所有token预测$p(s_n|s_1,s_2,...,S_{n-1})$
+本项目使用了中文[GPT-2](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)模型。GPT2的核心思想就是利用transformer的decoder构建语言模型,即训练目标为对序列中所有token优化其条件概率p(s<sub>n</sub> | s<sub>1</sub>,s<sub>2</sub>,...,s<sub>n-1</sub>)
 
 ## 数据
 
