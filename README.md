@@ -20,7 +20,7 @@ mkdir /data
 mkdir /model
 
 #从Gdrive 下载数据
-!wget -O data/train.json https://drive.google.com/u/0/uc?id=1lIp4Dc2ge_9o3_f_BXj7sZ9zjGY88KNd&export=download  
+wget -O data/train.json https://drive.google.com/u/0/uc?id=1lIp4Dc2ge_9o3_f_BXj7sZ9zjGY88KNd&export=download  
 ```
 训练模型,在单个16G的P100 GPU需要花费1h8min训练1个epoch，训练6个epoch大约花费7个小时
 ```
