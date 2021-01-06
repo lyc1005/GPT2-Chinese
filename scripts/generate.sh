@@ -1,8 +1,12 @@
 python generate.py \
-  --device 0 \
-  --length 900 \
-  --tokenizer_path cache/vocab_small.txt \
-  --model_path model/final_model \
-  --prefix "[CLS][MASK]" \
-  --topp 1 \
-  --temperature 1.0
+  --model_path=model/final_model \
+  --length=100 \
+  --nsamples=10 \
+  --batch_size=1 \
+  --topk=10 \
+  --topp=0 \
+  --prefix='' \
+  --model_config=model/final_model/config.json \
+  --tokenizer_path=cache/vocab_user.txt \
+  --save_samples \
+  --save_samples_path=./results

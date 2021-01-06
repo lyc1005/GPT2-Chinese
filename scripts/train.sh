@@ -1,12 +1,10 @@
-python train.py \
-  --model_config config/model_config_small.json \
-  --tokenized_data_path data/tokenized/ \
-  --tokenizer_path cache/vocab_small.txt \
-  --raw_data_path data/train.json \
-  --epochs 30 \
-  --log_step 200 \
-  --stride 512 \
-  --output_dir model/ \
-  --device 0,1,2,3 \
-  --num_pieces 100 \
-  --raw
+python train.py --raw \
+  --gradient_accumulation=4 \
+  --tokenizer_path=cache/vocab_user.txt \
+  --epochs=6 \
+  --lr=1e-4 \
+  --log_step=100 \
+  --num_pieces=10 \
+  --min_length=24 \
+  --stride=768 \
+  --batch_size=2
