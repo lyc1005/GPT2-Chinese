@@ -1,7 +1,7 @@
 # 古诗词生成
 
 ## 方法
-本项目使用了中文[GPT-2](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)模型。GPT-2的核心思想就是利用transformer的decoder构建语言模型,即训练目标为对序列中所有token优化其条件概率p(s<sub>n</sub> | s<sub>1</sub>,s<sub>2</sub>,...,s<sub>n-1</sub>)。生成时，GPT-2通过前文每次生成一个token，生成的token加入前文继续生成下一个token直到最大长度或古诗词创作完成，生成token本项目采用的方法时选取预测概率top10根据相应概率抽样得到。
+本项目使用了中文[GPT-2](https://d4mucfpksywv.cloudfront.net/better-language-models/language_models_are_unsupervised_multitask_learners.pdf)模型。GPT-2的核心思想就是利用transformer的decoder构建语言模型,即训练目标为对序列中所有token优化其条件概率p(s<sub>n</sub> | s<sub>1</sub>,s<sub>2</sub>,...,s<sub>n-1</sub>)。生成时，GPT-2通过前文每次预测生成一个token，本项目采用的方法是选取预测概率top10并根据相应概率抽样得到，生成的token加入前文继续输入模型生成下一个token，直到达到最大长度或古诗词创作完成
 
 ## 数据
 
