@@ -11,10 +11,10 @@
 如果需要复现模型结果或用模型生成古诗词，使用方法如下
 ```
 # 加载github仓库
-git clone https://github.com/lyc1005/GPT2-Chinese.git
+git clone https://github.com/lyc1005/GPT2-for-Chinese-Ancient-Poetry-Generation.git
 
 # 安装依赖包
-cd GPT2-Chinese/
+cd GPT2-for-Chinese-Ancient-Poetry-Generation/
 pip install -r requirements.txt
 mkdir /data
 mkdir /model
