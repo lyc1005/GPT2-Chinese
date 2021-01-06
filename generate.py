@@ -85,6 +85,8 @@ def sample_sequence(model, context, length, n_ctx, tokenizer, temperature=1.0, t
             next_token_logits[tokenizer.convert_tokens_to_ids('[UNK]')] = -float('Inf')
             filtered_logits = top_k_top_p_filtering(next_token_logits, top_k=top_k, top_p=top_p)
             next_token = torch.multinomial(F.softmax(filtered_logits, dim=-1), num_samples=1)
+            if next_token.item() == tokenizer.convert_tokens_to_ids('[CLS]'):
+                break
             generated = torch.cat((generated, next_token.unsqueeze(0)), dim=1)
     return generated.tolist()[0]
 
@@ -134,7 +136,7 @@ def main():
                         help='模型参数')
     parser.add_argument('--tokenizer_path', default='cache/vocab_small.txt', type=str, required=False, help='词表路径')
     parser.add_argument('--model_path', default='model/final_model', type=str, required=False, help='模型路径')
-    parser.add_argument('--prefix', default='萧炎', type=str, required=False, help='生成文章的开头')
+    parser.add_argument('--prefix', default='', type=str, required=False, help='生成文章的开头')
     parser.add_argument('--no_wordpiece', action='store_true', help='不做word piece切词')
     parser.add_argument('--segment', action='store_true', help='中文以词为单位')
     parser.add_argument('--fast_pattern', action='store_true', help='采用更加快的方式生成文本')
@@ -175,7 +177,7 @@ def main():
             os.makedirs(args.save_samples_path)
         samples_file = open(args.save_samples_path + '/samples.txt', 'w', encoding='utf8')
     while True:
-        raw_text = args.prefix
+        raw_text = '[CLS][MASK]' + args.prefix
         context_tokens = tokenizer.convert_tokens_to_ids(tokenizer.tokenize(raw_text))
         generated = 0
         for _ in range(nsamples // batch_size):
