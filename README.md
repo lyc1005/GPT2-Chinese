@@ -5,7 +5,7 @@
 
 ## 数据
 
-本项目使用的数据来自[chinese-poetry: 最全中文诗歌古典文集数据库](https://github.com/chinese-poetry/chinese-poetry),该古诗词语料库包含了包含 5.5 万首唐诗、26 万首宋诗、2.1 万首宋词和其他古典文集。诗人包括唐宋两朝近 1.4 万古诗人，和两宋时期 1.5 千古词人。本项目使用了其中的唐宋诗词共311860首,处理好的数据可以从[这里](https://drive.google.com/file/d/1lIp4Dc2ge_9o3_f_BXj7sZ9zjGY88KNd/view?usp=sharing)提取
+本项目使用的数据来自[chinese-poetry: 最全中文诗歌古典文集数据库](https://github.com/chinese-poetry/chinese-poetry),该古诗词语料库包含了包含 5.5 万首唐诗、26 万首宋诗、2.1 万首宋词和其他古典文集。诗人包括唐宋两朝近 1.4 万古诗人，和两宋时期 1.5 千古词人。本项目使用了其中的唐宋诗词共311860首,预处理好的数据可以从[这里](https://drive.google.com/file/d/1lIp4Dc2ge_9o3_f_BXj7sZ9zjGY88KNd/view?usp=sharing)提取
 
 ## 使用代码
 如果需要复现模型结果或用模型生成古诗词，使用方法如下
