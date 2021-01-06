@@ -107,6 +107,8 @@ def fast_sample_sequence(model, context, length, temperature=1.0, top_k=30, top_
             output = output[-1].squeeze(0) / temperature
             filtered_logits = top_k_top_p_filtering(output, top_k=top_k, top_p=top_p)
             next_token = torch.multinomial(torch.softmax(filtered_logits, dim=-1), num_samples=1)
+            if next_token.item() == tokenizer.convert_tokens_to_ids('[CLS]'):
+                break
             generate.append(next_token.item())
             prev = next_token.view(1, 1)
     return generate
